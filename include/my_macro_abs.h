@@ -8,6 +8,6 @@
 #ifndef MY_MACRO_ABS_H_
 #define MY_MACRO_ABS_H_
 
-#define ABS(val) (val < 0 ? -val : val)
+#define ABS(val) (val < 0 ? val * -1 : val)
 
 #endif /* !MY_MACRO_ABS_H_ */
