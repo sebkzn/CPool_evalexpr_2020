@@ -38,6 +38,7 @@ char *my_strcapitalize(char *str);
 int my_str_isalpha(char const *str);
 int my_str_islower(char const *str);
 int my_str_isnum(char const *str);
+int my_char_isnum(char c);
 int my_str_isprintable(char const *str);
 int my_str_isupper(char const *str);
 char *my_strlowcase(char *str);
