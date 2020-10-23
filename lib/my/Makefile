@@ -19,12 +19,13 @@ SRCS	= $(wildcard ./*.c)
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS += -I ../../include -Wall -Wextra
+CFLAGS += -I . -Wall -Wextra
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LDFLAGS)
 	 $(AR) $(NAME) $(OBJS)
+	 $(CP) my.h ../../include/
 
 clean:
 	$(RM) $(OBJS)
