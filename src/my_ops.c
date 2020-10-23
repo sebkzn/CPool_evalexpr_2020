@@ -10,7 +10,7 @@
 
 void my_mul(char **str_ptr, int *res)
 {
-    if ((*str_ptr)[0] == '*')
+    if (**str_ptr == '*')
         *str_ptr += 1;
     *res *= number(str_ptr);
 }
@@ -19,7 +19,7 @@ void my_div(char **str_ptr, int *res)
 {
     int tmp = 0;
 
-    if ((*str_ptr)[0] == '/')
+    if (**str_ptr == '/')
         *str_ptr += 1;
     tmp = number(str_ptr);
     if (tmp == 0)
@@ -31,7 +31,7 @@ void my_mod(char **str_ptr, int *res)
 {
     int tmp = 0;
 
-    if ((*str_ptr)[0] == '%')
+    if (**str_ptr == '%')
         *str_ptr += 1;
     tmp = number(str_ptr);
     if (tmp == 0)

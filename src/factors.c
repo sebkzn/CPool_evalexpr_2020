@@ -17,9 +17,10 @@ int my_char_is_expr(char c)
 
 int factors(char **str_ptr)
 {
-    int res = number(str_ptr);
+    static int res;
     int *res_ptr = NULL;
 
+    res += number(str_ptr);
     res_ptr = &res;
     while (**str_ptr && my_char_is_expr(**str_ptr)) {
         for (int j = 0; OPERATORS_FUNCS[j].op_sign; j++) {
@@ -27,5 +28,5 @@ int factors(char **str_ptr)
                 OPERATORS_FUNCS[j].my_op(str_ptr, res_ptr);
         }
     }
-    return (res);
+    return ((**str_ptr && my_char_isnum(**str_ptr)) ? factors(str_ptr ): res);
 }
