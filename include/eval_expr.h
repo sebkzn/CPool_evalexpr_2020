@@ -16,5 +16,6 @@ struct do_op {
 int number(char **str_ptr);
 int summands(char **str_ptr);
 int factors(char **str_ptr);
+int parentheses(char **str_ptr);
 
 #endif /* !EVAL_EXPR_H_ */
