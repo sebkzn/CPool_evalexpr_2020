@@ -24,13 +24,17 @@ int factors(char **str_ptr)
     res_ptr = &res;
     while (**str_ptr && my_char_is_expr(**str_ptr)) {
         for (int j = 0; OPERATORS_FUNCS[j].op_sign; j++) {
-            if (**str_ptr == OPERATORS_FUNCS[j].op_sign)
+            if (**str_ptr == OPERATORS_FUNCS[j].op_sign) {
+                if ((*str_ptr)[1] == '-' && (*str_ptr)[2] == '(')
+                    *res_ptr *= -1;
                 OPERATORS_FUNCS[j].my_op(str_ptr, res_ptr);
-        }
-        if (**str_ptr == '+' || **str_ptr == '-')
+            }
+        } if (**str_ptr == '+')
             res += factors(str_ptr);
-        if (**str_ptr == '(')
+        if (**str_ptr == '-') {
+            *str_ptr += 1;
+            res -= factors(str_ptr);
+        } if (**str_ptr == '(')
             res = parentheses(str_ptr);
-    }
-    return (res);
+    } return (res);
 }
